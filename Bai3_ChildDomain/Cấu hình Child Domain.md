@@ -1,6 +1,6 @@
 # Cấu hình Child Domain
 
-![Thiết kế chưa có tên.png](Thit_k_cha_c_tn.png)
+![Thiết kế chưa có tên.png](images/Thit_k_cha_c_tn.png)
 
 ### **1. Cài đặt một Child Domain trên Server Core**
 
