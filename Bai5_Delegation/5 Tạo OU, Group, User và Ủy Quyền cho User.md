@@ -123,7 +123,15 @@ Remote Server Administration Tools (RSAT) là bộ công cụ cho phép quản t
 
 Chúng ta sẽ cài đặt RSAT trên máy client FIT-WIN-01. Để có thể cài đặt RSAT trên máy client thì chúng ta phải có kết nối mạng cho máy. 
 
-Windows 10 version 1809 trở lên RSAT đã được tích hợp sẵn vào Windows như **Optional Feature** (cài bằng Settings hoặc PowerShell `Add-WindowsCapability`). Nếu dùng những phiên bản trước đó, bạn phải tải gói **RSAT standalone installer (.msu)** từ Microsoft và cài thủ công.
+> Lưu ý: Active Directory Users and Computers (ADUC) chỉ hoạt động trên các phiên bản Windows hỗ trợ RSAT như Windows 10 Pro, Enterprise, Education và Windows 11 tương ứng. 
+Từ bản Windows 10 1809 trở lên, RSAT được tích hợp sẵn và có thể cài qua phần Optional Features. Các phiên bản Home không hỗ trợ RSAT nên không thể sử dụng ADUC. Windows 8.1 Pro và Enterprise cũng dùng được ADUC nếu cài RSAT thủ công từ Microsoft.
+> 
+
+> Link cài đặt RSAT Windows 10: https://www.microsoft.com/en-us/download/details.aspx?id=45520
+> 
+
+> Link cài đặt RSAT Windows 8.1: https://www.microsoft.com/en-us/download/details.aspx?id=39296
+> 
 
 Lệnh cài RSAT (Active Directory Tools) bằng powershell:
 
@@ -142,16 +150,6 @@ Bạn sẽ thấy các module hiện Installed.
 ## Ủy quyền cho Users
 
 ### Ủy quyền cho các user trên có quyền Create, delete, and manage user accounts bằng cách dùng RSAT đã cài trên máy FIT-WIN-01.
-
-> Lưu ý: Active Directory Users and Computers (ADUC) chỉ hoạt động trên các phiên bản Windows hỗ trợ RSAT như Windows 10 Pro, Enterprise, Education và Windows 11 tương ứng. 
-Từ bản Windows 10 1809 trở lên, RSAT được tích hợp sẵn và có thể cài qua phần Optional Features. Các phiên bản Home không hỗ trợ RSAT nên không thể sử dụng ADUC. Windows 8.1 Pro và Enterprise cũng dùng được ADUC nếu cài RSAT thủ công từ Microsoft.
-> 
-
-> Link cài đặt RSAT Windows 10: https://www.microsoft.com/en-us/download/details.aspx?id=45520
-> 
-
-> Link cài đặt RSAT Windows 8.1: https://www.microsoft.com/en-us/download/details.aspx?id=39296
-> 
 
 ### Dưới đây là cấu hình với bản windows 10 đã tích hợp sẵn (tham khảo lab 4 nếu bản windows không hỗ trợ)
 
