@@ -1,9 +1,5 @@
 # Cấu hình OU và GroupUsers
 
-Projects: 4. Cài đặt OU và Group Users (https://www.notion.so/4-C-i-t-OU-v-Group-Users-2762170c3fd18035a8e0e4ef46d6e35f?pvs=21)
-Trạng thái: Done
-Assigned To: Cao Thông Thái, Thanh Nhã, Ngọc Bùi
-
 ### **Mục tiêu**
 
 - Tạo ra các User đăng nhập vào domain labtdtu.com
@@ -16,7 +12,7 @@ Assigned To: Cao Thông Thái, Thanh Nhã, Ngọc Bùi
 - Máy chủ Windows Server 2019 có cài đặt chức năng Active Directory (FIT-DC-02)
 - Một máy client kiểm thử kết nối
 
-![image.png](/images/image.png)
+![image.png](./images/image.png)
 
 ### **Bước 1: Tạo User trên Active Directory**
 
@@ -59,7 +55,7 @@ New-ADUser `
 
 Làm tương tự với các user còn lại theo bảng sau:
 
-![image 1.png](/images/image%201.png)
+![image 1.png](./images/image%201.png)
 
 ### **Bước 2: Tạo Group và thêm User trên Active Directory**
 
