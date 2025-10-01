@@ -1,125 +1,113 @@
-﻿**Bài 2: Triển khai dịch vụ Active Directory**
+﻿# **Bài 2: Triển khai dịch vụ Active Directory**
 
-Trên máy **FIT-DC-02** vào cmdlet *sconfig* 
+## **I. Nâng cấp máy chủ FIT-DC-02 lên Domain Controller chính**
 
-Nhập 8 (Network setting) →  Nhập số index card mạng tương ứng 
+Trên máy **FIT-DC-02**, vào cmdlet `sconfig`.
 
-**\* Cấu hình mạng cơ bản**
+Nhập `8` (Network setting) → Nhập số index card mạng tương ứng.
 
-Nhập 1 (Set Network Adapter Address) → Nhập s để chọn static → Nhập IP 192.168.1.2 →  Nhập subnetmask 255.255.255.0 → Nhập default gateway 192.168.1.1
+### **1. Cấu hình mạng cơ bản**
 
-**\* Cấu hình địa chỉ DNS server**
+*   Nhập `1` (Set Network Adapter Address).
+*   Nhập `s` để chọn static.
+*   Nhập IP: `192.168.1.2`
+*   Nhập Subnet mask: `255.255.255.0`
+*   Nhập Default gateway: `192.168.1.1`
 
-Nhập 2 (Set DNS Servers)  →  Nhập 192.168.1.2 (Máy chủ DNS chính) → Nhập IP máy chủ thay thế (Có thể để trống và nhấn enter)
+### **2. Cấu hình địa chỉ DNS server**
 
-![](\images\Aspose.Words.3da246a5-80bd-484e-ab30-ef511ec523f1.001.png)
+*   Nhập `2` (Set DNS Servers).
+*   Nhập `192.168.1.2` (Máy chủ DNS chính).
+*   Nhập IP máy chủ thay thế (Có thể để trống và nhấn Enter).
 
-**\* Cài đặt vai trò DNS trên FIT-DC-02**
+![](\images\Aspose.Words.3da246a5-8bd-484e-ab30-ef511ec523f1.001.png)
 
-Cmdlet “Install-WindowsFeature DNS”
+### **3. Cài đặt vai trò DNS trên FIT-DC-02**
+
+Sử dụng cmdlet:
+```powershell
+Install-WindowsFeature DNS
+```
 
 ![](\images\Aspose.Words.3da246a5-80bd-484e-ab30-ef511ec523f1.002.png)
 
-**\* Cài đặt và nâng cấp FIT-DC-02 lên Domain Controller**
+### **4. Cài đặt và nâng cấp FIT-DC-02 lên Domain Controller**
 
-\- Cmdlet “*Install-WindowsFeature AD-Domain-Service -IncludeManagementTools*”: Cài đặt vai trò **Active Directory**
-
-\- Cmdlet “*Import-Module ADDSDeployment*”: Nhập các cmdlet vận hành vai trò **Active Directory**
-
-\- Cmdlet “*Install-ADDSForest -DomainName ‘Labtdtu.com’ -InstallDNS*”: Tạo ra **Forest** với vùng domain chính là **Labtdtu.com** và khai báo vào DNS Server
-
-\- Sau khi nhập cmdlet, hệ thống sẽ yêu cầu tạo và xác nhận mật khẩu cho chế độ an toàn với user quyền cao nhất là Administrator
+*   **Cài đặt vai trò Active Directory:**
+    ```powershell
+    Install-WindowsFeature AD-Domain-Service -IncludeManagementTools
+    ```
+*   **Nhập các cmdlet vận hành vai trò Active Directory:**
+    ```powershell
+    Import-Module ADDSDeployment
+    ```
+*   **Tạo ra Forest với vùng domain chính là `Labtdtu.com` và khai báo vào DNS Server:**
+    ```powershell
+    Install-ADDSForest -DomainName ‘Labtdtu.com’ -InstallDNS
+    ```
+*   Sau khi nhập cmdlet, hệ thống sẽ yêu cầu tạo và xác nhận mật khẩu cho chế độ an toàn với user quyền cao nhất là `Administrator`.
 
 ![](\images\Aspose.Words.3da246a5-80bd-484e-ab30-ef511ec523f1.003.png)
 
-\- Sau khi thực hiện cấu hình, hệ thống sẽ tự động khởi động lại, nhấn tổ hợp Ctrl + Alt + Del và nhập mật khẩu user để mở khóa
+*   Sau khi thực hiện cấu hình, hệ thống sẽ tự động khởi động lại. Nhấn tổ hợp phím **Ctrl + Alt + Del** và nhập mật khẩu user để mở khóa.
 
 ![](\images\Aspose.Words.3da246a5-80bd-484e-ab30-ef511ec523f1.004.png)
 
+## **II. Cấu hình Client gia nhập vào Domain**
 
-
-**\* Cấu hình Client gia nhập vào Domain**
-
-\- Yêu cầu client phải được cấu hình chung với mạng Domain Controller và phải có địa chỉ nhận DNS chính thuộc về máy chủ Domain Controller
-
-\- Nhấn tỗ hợp phím Windows + R → Nhập “Control system” → Click vào “change settings” cạnh phải → “Change…” → Chuyển option workgroup sang domain và nhập **labtdtu.com** → Nhập tên là Administrator cùng với mật khẩu được thiết lập trên **FIT-DC-02** → Hệ thống sẽ yêu cầu khởi động hoặc để sau
+*   **Yêu cầu:** Client phải được cấu hình chung mạng với Domain Controller và phải có địa chỉ DNS chính trỏ về máy chủ Domain Controller.
+*   Nhấn tổ hợp phím **Windows + R** → Nhập `Control system`.
+*   Click vào **"Change settings"** → **"Change…"**.
+*   Chuyển option từ `Workgroup` sang `Domain` và nhập **labtdtu.com**.
+*   Nhập tên là `Administrator` cùng với mật khẩu được thiết lập trên **FIT-DC-02**.
+*   Hệ thống sẽ yêu cầu khởi động lại ngay hoặc để sau.
 
 ![](\images\Aspose.Words.3da246a5-80bd-484e-ab30-ef511ec523f1.005.png)
 
 ![](\images\Aspose.Words.3da246a5-80bd-484e-ab30-ef511ec523f1.006.png)
 
-
 ![](\images\Aspose.Words.3da246a5-80bd-484e-ab30-ef511ec523f1.007.png)
 
+## **III. Nâng cấp máy chủ FIT-SDC-04 làm Domain Controller phụ**
 
-**\* Nâng cấp máy chủ FIT-SDC-04 làm Domain Controller phụ thay thế**
+Trên máy **FIT-SDC-04**, vào cmdlet `sconfig`.
 
-Trên máy **FIT-SDC-04** vào cmdlet *sconfig* 
+Nhập `8` (Network setting) → Nhập số index card mạng tương ứng.
 
-Nhập 8 (Network setting) →  Nhập số index card mạng tương ứng 
+### **1. Cấu hình mạng cơ bản**
 
-**\* Cấu hình mạng cơ bản**
+*   Nhập `1` (Set Network Adapter Address).
+*   Nhập `s` để chọn static.
+*   Nhập IP: `192.168.1.4`
+*   Nhập Subnet mask: `255.255.255.0`
+*   Nhập Default gateway: `192.168.1.1`
 
-Nhập 1 (Set Network Adapter Address) → Nhập s để chọn static → Nhập IP 192.168.1.4 →  Nhập subnetmask 255.255.255.0 → Nhập default gateway 192.168.1.1
+### **2. Cấu hình địa chỉ DNS server**
 
-**\* Cấu hình địa chỉ DNS server**
-
-Nhập 2 (Set DNS Servers)  →  Nhập 192.168.1.2 (Máy chủ DNS chính) → Nhập IP máy chủ thay thế (Có thể để trống và nhấn enter)
-
+*   Nhập `2` (Set DNS Servers).
+*   Nhập `192.168.1.2` (Máy chủ DNS chính).
+*   Nhập IP máy chủ thay thế (Có thể để trống và nhấn Enter).
 
 ![](\images\Aspose.Words.3da246a5-80bd-484e-ab30-ef511ec523f1.008.png)
 
-**\* Cài đặt và nâng cấp FIT-SDC-04 lên Domain Controller phụ cho labtdtu.com**
+### **3. Cài đặt và nâng cấp FIT-SDC-04 lên Domain Controller phụ**
 
-\- Cmdlet “*Install-WindowsFeature AD-Domain-Service -IncludeManagementTools*”: Cài đặt vai trò **Active Directory**
-
-\- Cmdlet “*Install-ADDSDomainController -DomainName ‘labtdtu.com” -credential (Get-Credential) -force: $true*”: Join vùng domain có sẵn là labtdtu.com
-
-\- Hệ thống sẽ hiện cửa sổ yêu cầu nhập username và password của user được ủy quyền trên **labtdtu.com.** Mặc định là Administrator
-
+*   **Cài đặt vai trò Active Directory:**
+    ```powershell
+    Install-WindowsFeature AD-Domain-Service -IncludeManagementTools
+    ```
+*   **Join vào domain `labtdtu.com` đã có sẵn:**
+    ```powershell
+    Install-ADDSDomainController -DomainName ‘labtdtu.com’ -credential (Get-Credential) -force:$true
+    ```
+*   Hệ thống sẽ hiện cửa sổ yêu cầu nhập username và password của user được ủy quyền trên **labtdtu.com**. Mặc định là `Administrator`.
 
 ![](\images\Aspose.Words.3da246a5-80bd-484e-ab30-ef511ec523f1.009.png)
 
-\- Sau khi xác thực thành công, hệ thống sẽ yêu cầu tạo và xác nhận mật khẩu cho chế độ an toàn với user quyền cao nhất là Administrator (tương tự máy chủ chính)
+*   Sau khi xác thực thành công, hệ thống sẽ yêu cầu tạo và xác nhận mật khẩu cho chế độ an toàn (tương tự máy chủ chính).
 
 ![](\images\Aspose.Words.3da246a5-80bd-484e-ab30-ef511ec523f1.010.png)
 
 ![](\images\Aspose.Words.3da246a5-80bd-484e-ab30-ef511ec523f1.011.png)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@Cao Thông Thái - Nhóm hỗ trợ quản trị hệ thống mạng
+***
