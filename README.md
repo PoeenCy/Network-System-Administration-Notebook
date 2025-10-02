@@ -8,6 +8,8 @@ Mục tiêu là tạo ra một kho lưu trữ giúp dễ dàng theo dõi, ôn t�
 
 ## 📚 Danh sách Bài Thực Hành
 
+*Link tổng hợp video: https://www.youtube.com/playlist?list=PLM7YsKegPTXOxKKP-UTLzl7HdBiUWMnzK*
+
 1. **Cài đặt Windows Server**  
    👉 Cài đặt hệ điều hành Windows Server và chuẩn bị môi trường.
 
