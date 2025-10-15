@@ -43,37 +43,21 @@ Network-System-Administration/
 │
 ├── README.md
 │
-├── Bai1_WindowsServer/
-│   ├── images/
-│   └── README.md
+├── Chapter1_WindowsServer/
 │
-├── Bai2_ActiveDirectory/
-│   ├── images/
-│   └── README.md
+├── Chapter2_ActiveDirectory/
 │
-├── Bai3_ChildDomain/
-│   ├── images/
-│   └── README.md
+├── Chapter3_ChildDomain/
 │
-├── Bai4_OU_GroupUser/
-│   ├── images/
-│   └── README.md
+├── Chapter4_OU_GroupUser/
 │
-├── Bai5_OU_GroupUser_Delegation/
-│   ├── images/
-│   └── README.md
+├── Chapter5_OU_GroupUser_Delegation/
 │
-├── Bai6_DHCP/
-│   ├── images/
-│   └── README.md
+├── Chapter6_DHCP/
 │
-├── Bai7_DiskManagement/
-│   ├── images/
-│   └── README.md
+├── Chapter7_DiskManagement/
 │
-└── Bai8_SharingPermission/
-    ├── images/
-    └── README.md
+└── Chapter8_SharingPermission/
 ```
 
 ## 🚀 Mục Tiêu
