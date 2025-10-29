@@ -328,7 +328,7 @@ Làm tương tự cho Mirrored và Parity.
 > Ngoài việc chúng ta cấu hình theo từng câu lệnh như trên, ta có thể viết một đoạn scripts để tự động hóa quá trình và chuyển đổi một giao diện nho nhỏ để quá trình cấu hình trở nên dễ dàng hơn.
 > 
 
-[Scripts ở đây nhé!!!](Scripts ở đây nhé!!!.md)
+[Scripts ở đây nhé!!!](Scripts.md)
 
 ---
 
