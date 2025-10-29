@@ -90,7 +90,7 @@ Server FIT-DC-02, FIT-SDC-04
 
 # 3. Mô hình mạng
 
-![image.png](/images/image.png)
+![image.png](images/image.png)
 
 # 4. Thực hành lab
 
@@ -108,19 +108,19 @@ Tắt máy →Edit virtual machine settings→Add....→Hard Disk→Next→Chọ
 
 Làm tương tự để tạo đủ 3 disks.
 
-![1.png](/images/1.png)
+![1.png](images/1.png)
 
-![2.png](/images/2.png)
+![2.png](images/2.png)
 
-![3.png](/images/3.png)
+![3.png](images/3.png)
 
-![4.png](/images/4.png)
+![4.png](images/4.png)
 
-![5.png](/images/5.png)
+![5.png](images/5.png)
 
-![6.png](/images/6.png)
+![6.png](images/6.png)
 
-![7.png](/images/7.png)
+![7.png](images/7.png)
 
 ### **b. Khởi tạo Đĩa mới dưới dạng MBR**
 
@@ -185,7 +185,7 @@ list volume
 
 ## 4.2. Cấu hình RAID 0, 1, 5
 
-![image.png](/images/image%201.png)
+![image.png](images/image%201.png)
 
 **Xóa toàn bộ volume trên disk 1, 2, 3 và chuyển từ basic sang dynamic**
 
@@ -328,13 +328,13 @@ Làm tương tự cho Mirrored và Parity.
 > Ngoài việc chúng ta cấu hình theo từng câu lệnh như trên, ta có thể viết một đoạn scripts để tự động hóa quá trình và chuyển đổi một giao diện nho nhỏ để quá trình cấu hình trở nên dễ dàng hơn.
 > 
 
-[Scripts ở đây nhé!!!](Scripts%20%E1%BB%9F%20%C4%91%C3%A2y%20nh%C3%A9!!!%2029b2170c3fd180278aa5c3ba1453737a.md)
+[Scripts ở đây nhé!!!](Scripts ở đây nhé!!!.md)
 
 ---
 
 # NÂNG CAO - KHÔNG GIAN LƯU TRỮ HIỆN ĐẠI: STORAGE SPACES
 
-![image.png](/images/image%202.png)
+![image.png](images/image%202.png)
 
 ## 1. Lý thuyết và Chức năng 🚀
 
